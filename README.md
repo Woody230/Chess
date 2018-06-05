@@ -1,3 +1,3 @@
-# MemoryManager
+# Chess
 
 ![](Screenshots/ChessImage.PNG)
