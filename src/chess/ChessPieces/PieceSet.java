@@ -28,7 +28,7 @@ public class PieceSet
         {
             add(new Pawn(PieceColor.BLACK));
         }
-    }};//end variable declaration
+    }};
             
     public final static ArrayList<ChessPiece> INITIAL_WHITE_PIECE_LIST = new ArrayList()
     {{
@@ -45,7 +45,7 @@ public class PieceSet
         add(new Bishop(PieceColor.WHITE));
         add(new Knight(PieceColor.WHITE));
         add(new Rook(PieceColor.WHITE));
-    }};//end variable declaration
+    }};
     
     /**
      * Initializes a collection of pieces based on {@code color}.
@@ -63,7 +63,7 @@ public class PieceSet
         {
             pieceList = INITIAL_BLACK_PIECE_LIST;
         }
-    }//end constructor
+    }
     
     /**
      * Removes a {@link ChessPiece} from the set based on the {@code type} of piece to be removed.
@@ -87,7 +87,7 @@ public class PieceSet
             
             JOptionPane.showMessageDialog(null, victoryColor + " wins");
             System.exit(0);
-        }//end if 
+        } 
         
         for(ChessPiece piece: pieceList)
         {
@@ -95,7 +95,7 @@ public class PieceSet
             {
                 pieceList.remove(piece);
                 return;
-            }//end if
-        }//end loop
-    }//end method
-}//end class
+            }
+        }
+    }
+}

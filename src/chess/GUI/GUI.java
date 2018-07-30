@@ -37,7 +37,7 @@ public class GUI extends JFrame
         
         pack(); //Set size of this frame to the minimum required size to display all components.
         setLocationRelativeTo(null);
-    }//end method
+    }
     
     private void initializeComponents()
     {
@@ -45,5 +45,5 @@ public class GUI extends JFrame
         gbc.gridx = 0;
         gbc.gridy = 0;
         add(board, gbc);
-    }//end method
-}//end class
+    }
+}

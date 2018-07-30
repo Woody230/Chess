@@ -46,9 +46,9 @@ public class Knight extends ChessPiece
                 {
                     validMoves.add(new Move(fromRow, fromColumn, rows[i], columns[i], fromPiece, boardState[rows[i]][columns[i]]));
                 }
-            }//end if
-        }//end loop
+            }
+        }
         
         return validMoves;
-    }//end method
-}//end class
+    }
+}

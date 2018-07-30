@@ -41,5 +41,5 @@ public class Queen extends ChessPiece
         validMoves.addAll(diagonalMoves);
         validMoves.addAll(straightMoves);
         return validMoves;
-    }//end method
-}//end class
+    }
+}

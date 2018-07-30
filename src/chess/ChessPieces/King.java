@@ -54,12 +54,12 @@ public class King extends ChessPiece
                     {
                         validMoves.add(new Move(fromRow, fromColumn, row, column, fromPiece, boardState[row][column]));
                     }
-                }//end if
-            }//end loop
-        }//end loop
+                }
+            }
+        }
         
         //Finish implementing castling.
         
         return validMoves;
-    }//end method
-}//end class
+    }
+}

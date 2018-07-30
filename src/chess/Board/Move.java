@@ -33,7 +33,7 @@ public class Move
         this.toRow = toRow;
         this.toColumn = toColumn;
         this.pieceMoved = pieceMoved;
-    }//end constructor
+    }
     */
     
     /**
@@ -53,7 +53,7 @@ public class Move
         this.toColumn = toColumn;
         this.pieceMoved = pieceMoved;
         this.pieceCaptured = pieceCaptured;
-    }//end constructor
+    }
 
     public int getFromRow() 
     {
@@ -114,4 +114,4 @@ public class Move
     {
         this.pieceCaptured = pieceCaptured;
     }
-}//end class
+}

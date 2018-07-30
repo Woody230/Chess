@@ -60,4 +60,4 @@ public abstract class ChessPiece
      * @return an {@link ArrayList} containing all of the valid moves {@code fromPiece} can do from {@code fromRow} and {@code fromColumn}
      */
     public abstract ArrayList<Move> getValidMoves(int fromRow, int fromColumn, ChessPiece fromPiece, int numRows, int numColumns, ChessPiece[][] boardState);
-}//end class
+}

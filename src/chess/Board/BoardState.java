@@ -44,7 +44,7 @@ public class BoardState
         moveList = new MoveList();
         
         initialize();
-    }//end constructor
+    }
     
     /**
      * Initializes the board using each {@link PieceSet} in the order that each {@link ChessPiece} will be placed from top left to bottom right.
@@ -59,8 +59,8 @@ public class BoardState
             {
                 boardState[row][column] = PieceSet.INITIAL_BLACK_PIECE_LIST.get(index);
                 index++;
-            }//end loop
-        }//end loop
+            }
+        }
         
         index = 0;
         
@@ -70,9 +70,9 @@ public class BoardState
             {
                 boardState[row][column] = PieceSet.INITIAL_WHITE_PIECE_LIST.get(index);
                 index++;
-            }//end loop
-        }//end loop
-    }//end method
+            }
+        }
+    }
     
     public PieceColor getTurn()
     {
@@ -108,7 +108,7 @@ public class BoardState
         {
             turn = PieceColor.WHITE;
         }
-    }//end method
+    }
     
     /**
      * Saves {@code piece} to the {@code row} and {@code column} of the board state.
@@ -148,7 +148,7 @@ public class BoardState
         {
             blackSet.removePiece(piece.getPieceType());
         }
-    }//end method
+    }
     
     /**
      * 
@@ -169,10 +169,10 @@ public class BoardState
             {
                 return move;
             }
-        }//end loop
+        }
         
         return null;
-    }//end method
+    }
     */
     
     /**
@@ -190,10 +190,10 @@ public class BoardState
             {
                 return move;
             }
-        }//end loop
+        }
         
         return null;
-    }//end method
+    }
     
     /**
      * 
@@ -204,5 +204,5 @@ public class BoardState
     public ArrayList<Move> getValidMoves(int fromRow, int fromColumn)
     {
         return boardState[fromRow][fromColumn].getValidMoves(fromRow, fromColumn, getBoardStateSquare(fromRow, fromColumn), numRows, numColumns, boardState);
-    }//end method
-}//end class
+    }
+}

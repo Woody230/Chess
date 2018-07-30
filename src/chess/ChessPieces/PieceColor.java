@@ -8,4 +8,4 @@ package chess.ChessPieces;
 public enum PieceColor 
 {
     BLACK, WHITE;
-}//end enum
+}

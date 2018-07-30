@@ -85,21 +85,23 @@ public class ChessBoard extends JPanel
                 
                 squareLabels[row][column] = lbl;
                 add(lbl);
-            }//end loop
-        }//end loop
-        
-        for(int row = 0; row < numRows; row++)
-        {
-            for(int column = 0; column < numColumns; column++)
-            {
+                
                 if(boardState.getBoardStateSquare(row, column) != null)
                 {
                     ChessPiece piece = boardState.getBoardStateSquare(row, column);
                     setTextToPiece(row, column, piece);
                 }
-            }//end loop
-        }//end loop
-    }//end method
+            }
+        }
+        
+        for(int row = 0; row < numRows; row++)
+        {
+            for(int column = 0; column < numColumns; column++)
+            {
+                
+            }
+        }
+    }
     
     /**
      * Draws the squares of the board. If the user picks up a {@link ChessPiece} then the squares associated with valid moves change color.
@@ -124,8 +126,8 @@ public class ChessBoard extends JPanel
                 }
                 
                 g.fillRect(column * width, row * height, width, height);
-            }//end loop
-        }//end loop
+            }
+        }
         
         if(setToValidMoveColor)
         {
@@ -133,9 +135,9 @@ public class ChessBoard extends JPanel
             {
                 g.setColor(validMoveColor);
                 g.fillRect(move.getToColumn() * width, move.getToRow() * height, width, height);
-            }//end loop
-        }//end if
-    }//end method
+            }
+        }
+    }
     
     /**
      * Resets the first (source) square the user clicks, and any associated variables, to its default.
@@ -148,7 +150,7 @@ public class ChessBoard extends JPanel
         sourceY = 0;
         sourceRow = 0;
         sourceColumn = 0;
-    }//end method
+    }
     
     /**
      * Resets the valid moves and any associated variables to its default.
@@ -158,7 +160,7 @@ public class ChessBoard extends JPanel
         validMoves = null;
         setToValidMoveColor = false;
         validMoveFlag = false;
-    }//end method
+    }
     
     /**
      * 
@@ -178,12 +180,12 @@ public class ChessBoard extends JPanel
                     rowColumn[0] = row;
                     rowColumn[1] = column;
                     return rowColumn;
-                }//end if
-            }//end loop
-        }//end loop
+                }
+            }
+        }
         
         return null; //Shouldn't ever get to this point.
-    }//end method
+    }
     
     /**
      * Sets the text of a {@link JLabel} found in the two dimensional {@link JLabel} array based on {@code piece}.
@@ -197,7 +199,7 @@ public class ChessBoard extends JPanel
         {
             squareLabels[row][column].setText("");
             return;
-        }//end if
+        }
         
         PieceType type = piece.getPieceType();
         PieceColor color = piece.getPieceColor();
@@ -224,8 +226,8 @@ public class ChessBoard extends JPanel
                 case ROOK:
                     squareLabels[row][column].setText("\u265C");
                     break;
-            }//end switch 
-        }//end if 
+            } 
+        } 
         else
         {
             switch(type) 
@@ -248,9 +250,9 @@ public class ChessBoard extends JPanel
                 case ROOK:
                     squareLabels[row][column].setText("\u2656");
                     break;
-            }//end switch
-        }//end else 
-    }//end method
+            }
+        } 
+    }
     
     /**
      * Handles mouse presses and mouse releases for the two dimensional {@link JLabel} array.
@@ -258,7 +260,7 @@ public class ChessBoard extends JPanel
     private class LabelMouseHandler extends MouseAdapter
     {
         /**
-         * Invoked when a mouse button has been released on a component.
+         * Invoked when the mouse has been released on a component.
          * <br>Assuming that there is a source square and there is a valid move, the move is performed by changing the text of the {@link JLabel}{@code s} affected.
          * @param me {@link MouseEvent} created from releasing the mouse on a square
          */
@@ -293,14 +295,14 @@ public class ChessBoard extends JPanel
                     boardState.setBoardStateSquare(sourceRow, sourceColumn, null);
                     boardState.setBoardStateSquare(toRow, toColumn, sourcePiece);
                     boardState.changeTurn();
-                }//end if
+                }
                 
                 resetSource();
-            }//end if
+            }
             
             resetValidMove(); //Need to do this so setToValidMoveColor is false.
             repaint();
-        }//end method
+        }
         
         /**
          * Invoked when a mouse button has been pressed on a component.
@@ -330,13 +332,13 @@ public class ChessBoard extends JPanel
                 //Subtracting width/2 or height/2 provides this functionality.
                 lblX = sourceX + (screenX - source.getLocationOnScreen().x) - width / 2;
                 lblY = sourceY + (screenY - source.getLocationOnScreen().y) - height / 2;
-            }//end if
+            }
             else //Empty or opposite color square selected.
             {
                 resetSource();
-            }//end else
-        }//end method
-    }//end ML class
+            }
+        }
+    }
 
     /**
      * Handles dragging the mouse for the two dimensional {@link JLabel} array.
@@ -362,13 +364,13 @@ public class ChessBoard extends JPanel
                     validMoveFlag = true;
                     setToValidMoveColor = true;
                     repaint();
-                }//end if
+                }
                 
                 //Adds change to mouse position to label's position.
                 int x = lblX + me.getXOnScreen() - screenX;
                 int y = lblY + me.getYOnScreen() - screenY;
                 source.setLocation(x, y);
-            }//end if
-        }//end method
-    }//end MML class
-}//end class
+            }
+        }
+    }
+}

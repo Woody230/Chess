@@ -35,103 +35,67 @@ public class Bishop extends ChessPiece
     public ArrayList<Move> getValidMoves(int fromRow, int fromColumn, ChessPiece fromPiece, int numRows, int numColumns, ChessPiece[][] boardState)
     {
         ArrayList<Move> validMoves = new ArrayList();
-        PieceColor color = fromPiece.getPieceColor();
-        int row = fromRow - 1;
-        int column = fromColumn + 1;
+        PieceColor fromPieceColor = fromPiece.getPieceColor();
+        int row, column;
         
-        while(row >= 0 && column < numColumns) //Check 1st quadrant.
+        for(int i = 0; i < 4; i++)
         {
-            if(boardState[row][column] == null) //Empty space
+            switch(i)
             {
-                validMoves.add(new Move(fromRow, fromColumn, row, column, fromPiece, boardState[row][column]));
-            }
-            else if(boardState[row][column].getPieceColor() != color) //Enemy
-            {
-                validMoves.add(new Move(fromRow, fromColumn, row, column, fromPiece, boardState[row][column]));
-                break; 
-            }
-            else 
-            {
-                break;
+                case 0: //1st quadrant.
+                    row = fromRow - 1;
+                    column = fromColumn + 1;
+                    break;
+                case 1: //2nd quadrant.
+                    row = fromRow - 1;
+                    column = fromColumn - 1;
+                    break;
+                case 2: //3rd quadrant.
+                    row = fromRow + 1;
+                    column = fromColumn - 1;
+                    break;
+                default: //4th quadrant.
+                    row = fromRow + 1;
+                    column = fromColumn + 1;
             }
             
-            //Move along diagonal.
-            row--;
-            column++;
-        }//end loop
-        
-        row = fromRow - 1;
-        column = fromColumn - 1;
-        
-        while(row >= 0 && column >= 0) //Check 2nd quadrant.
-        {
-            if(boardState[row][column] == null) //Empty space
+            while(row >= 0 && row < numRows && column >= 0 && column < numColumns)
             {
-                validMoves.add(new Move(fromRow, fromColumn, row, column, fromPiece, boardState[row][column]));
-            }
-            else if(boardState[row][column].getPieceColor() != color) //Enemy
-            {
-                validMoves.add(new Move(fromRow, fromColumn, row, column, fromPiece, boardState[row][column]));
-                break;
-            }
-            else
-            {
-                break;
-            }
+                if(boardState[row][column] == null) //Empty space
+                {
+                    validMoves.add(new Move(fromRow, fromColumn, row, column, fromPiece, boardState[row][column]));
+                }
+                else if(boardState[row][column].getPieceColor() != fromPieceColor) //Enemy
+                {
+                    validMoves.add(new Move(fromRow, fromColumn, row, column, fromPiece, boardState[row][column]));
+                    break; 
+                }
+                else 
+                {
+                    break;
+                }
             
-            //Move along diagonal.
-            row--;
-            column--;
-        }//end loop
-        
-        row = fromRow + 1;
-        column = fromColumn - 1;
-        
-        while(row < numRows && column >= 0) //Check 3rd quadrant.
-        {
-            if(boardState[row][column] == null) //Empty space
-            {
-                validMoves.add(new Move(fromRow, fromColumn, row, column, fromPiece, boardState[row][column]));
+                switch(i)
+                {
+                    case 0: //1st quadrant.
+                        row--;
+                        column++;
+                        break;
+                    case 1: //2nd quadrant.
+                        row--;
+                        column--;
+                        break;
+                    case 2: //3rd quadrant.
+                        row++;
+                        column--;
+                        break;
+                    default: //4th quadrant.
+                        row++;
+                        column++;
+                }
             }
-            else if(boardState[row][column].getPieceColor() != color) //Enemy
-            {
-                validMoves.add(new Move(fromRow, fromColumn, row, column, fromPiece, boardState[row][column]));
-                break;
-            }
-            else
-            {
-                break;
-            }
-            
-            //Move along diagonal.
-            row++;
-            column--;
-        }//end loop
-        
-        row = fromRow + 1;
-        column = fromColumn + 1;
-        
-        while(row < numRows && column < numColumns) //Check 4th quadrant.
-        {
-            if(boardState[row][column] == null) //Empty space
-            {
-                validMoves.add(new Move(fromRow, fromColumn, row, column, fromPiece, boardState[row][column]));
-            }
-            else if(boardState[row][column].getPieceColor() != color) //Enemy
-            {
-                validMoves.add(new Move(fromRow, fromColumn, row, column, fromPiece, boardState[row][column]));
-                break;
-            }
-            else
-            {
-                break;
-            }
-            
-            //Move along diagonal.
-            row++;
-            column++;
-        }//end loop
+        }
         
         return validMoves;
-    }//end method
-}//end class
+    }
+}

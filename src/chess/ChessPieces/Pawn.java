@@ -51,12 +51,12 @@ public class Pawn extends ChessPiece
         {
             rows = new int[]{fromRow + 1, fromRow + 2, fromRow + 1, fromRow + 1};
             columns = new int[]{fromColumn, fromColumn, fromColumn - 1, fromColumn + 1};
-        }//end if 
+        } 
         else
         {
             rows = new int[]{fromRow - 1, fromRow - 2, fromRow - 1, fromRow - 1};
             columns = new int[]{fromColumn, fromColumn, fromColumn - 1, fromColumn + 1};
-        }//end else 
+        } 
         
         for(int i = 0; i < rows.length; i++)
         {
@@ -79,7 +79,7 @@ public class Pawn extends ChessPiece
                         {
                             validMoves.add(new Move(fromRow, fromColumn, rows[i], columns[i], fromPiece, boardState[rows[i]][columns[i]]));
                             break;
-                        }//end if
+                        }
                         else
                         {
                             break;
@@ -94,13 +94,13 @@ public class Pawn extends ChessPiece
                         {
                             break;
                         }
-                }//end switch
-            }//end if
-        }//end loop
+                }
+            }
+        }
         
         //Finish implementing en passant.
         //if(previousMoves.getLastMove() == opposite color Pawn now in same row && in left or right column && it moved 2 spaces)
         
         return validMoves;
-    }//end method
-}//end class
+    }
+}

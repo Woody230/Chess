@@ -56,7 +56,7 @@ public class Rook extends ChessPiece
             }
             
             row--;
-        }//end loop
+        }
         
         row = fromRow;
         column = fromColumn - 1;
@@ -78,7 +78,7 @@ public class Rook extends ChessPiece
             }
             
             column--;
-        }//end loop
+        }
         
         row = fromRow + 1;
         column = fromColumn;
@@ -100,7 +100,7 @@ public class Rook extends ChessPiece
             }
             
             row++;
-        }//end loop
+        }
         
         row = fromRow;
         column = fromColumn + 1;
@@ -122,8 +122,8 @@ public class Rook extends ChessPiece
             }
 
             column++;
-        }//end loop
+        }
         
         return validMoves;
-    }//end method
-}//end class
+    }
+}

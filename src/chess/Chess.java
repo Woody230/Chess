@@ -16,4 +16,4 @@ public class Chess
     {
         new GUI();
     }
-}//end class
+}
